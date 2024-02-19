@@ -15,13 +15,12 @@ These commands should be self explanatory
 
 Assuming suggested keybindings are enabled, here's how the plugin works
 
-### With `relative_line_numbers` enabled
 
-- `alt+up, [1-9]` / `alt+down, [1-9]`
+### `alt+up, [1-9]` / `alt+down, [1-9]`
 
    Moves you from your current line relative to a line based on the number pressed. 
 
-- `alt+up, up` / `alt+down, down`
+### `alt+up, up` / `alt+down, down`
 
    Moves you from your current line relative to a line based on the `default_line_jump` value.
 
