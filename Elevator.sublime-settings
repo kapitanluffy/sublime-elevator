@@ -1,0 +1,5 @@
+{
+    // Default number of lines to jump if no number is specified
+    // set false to disable
+    "default_line_jump": 10
+}

@@ -1,0 +1,43 @@
+[
+    {
+        "caption": "Preferences: Elevator Settings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/Elevator/Elevator.sublime-settings",
+            "default": "{\n\t$0\n}\n"
+        }
+    },
+    {
+        "caption": "Preferences: Elevator Key Bindings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/Elevator/Default.sublime-keymap",
+            "default": "[\n\t$0\n]\n"
+        }
+    },
+    {
+        "caption": "Elevator: Open Readme",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/Elevator/README.md"
+        }
+    },
+    {
+        "caption": "Elevator: Toggle Relative Line Numbers",
+        "command": "elevator_toggle_relative_line_numbers",
+    },
+    {
+        "caption": "Elevator: Move Up 🔺",
+        "command": "elevator_move",
+        "args": {
+            "forward": false
+        }
+    },
+    {
+        "caption": "Elevator: Move Down 🔻",
+        "command": "elevator_move",
+        "args": {
+            "forward": true
+        }
+    },
+]

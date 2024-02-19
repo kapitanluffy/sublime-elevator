@@ -1,0 +1,6 @@
+[
+    { "keys": ["alt+up", "<character>"], "command": "elevator_move", "args": { "forward": false } },
+    { "keys": ["alt+up", "up"], "command": "elevator_move", "args": { "forward": false } },
+    { "keys": ["alt+down", "<character>"], "command": "elevator_move", "args": { "forward": true } },
+    { "keys": ["alt+down", "down"], "command": "elevator_move", "args": { "forward": true } },
+]
