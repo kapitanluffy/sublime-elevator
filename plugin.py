@@ -47,15 +47,18 @@ class ElevatorMoveCommand(sublime_plugin.WindowCommand):
         if view is None:
             return
 
+        # "up" and "down" strings will be casted to zero
         lines = cast_to_int(character)
 
-        if lines == 0:
+        # Use default_line_jump if lines is zero
+        if lines == 0 and (character == "up" or character == "down"):
             settings = sublime.load_settings("Elevator.sublime-settings")
             lines = cast_to_int(settings.get("default_line_jump", 0))
 
         if lines != 0:
             for _ in range(lines):
                 self.window.run_command("move", {"by": "lines", "forward": is_forward})
+            view.run_command("show_at_center")
             return
 
         firstlinenum, lastlinenum = get_first_and_last_lines(view)
@@ -89,8 +92,10 @@ class ElevatorMoveCommand(sublime_plugin.WindowCommand):
 
         lines = cast_to_int(text)
 
+        # @bug has problems with wrapped lines
         for _ in range(lines):
             self.window.run_command("move", {"by": "lines", "forward": is_forward})
+        view.run_command("show_at_center")
 
     def move_absolute(self, character, is_forward):
         view = self.window.active_view()
@@ -112,6 +117,7 @@ class ElevatorMoveCommand(sublime_plugin.WindowCommand):
             direction = 1 if is_forward is True else -1
             line = firstlinenum + (initial_value * direction)
             view.run_command("goto_line", {"line": line if line > 0 else 1})
+            view.run_command("show_at_center")
             return
 
         # move down and NOT in the last line
@@ -139,6 +145,8 @@ class ElevatorMoveCommand(sublime_plugin.WindowCommand):
 
         if initial_value != 0:
             view.run_command("goto_line", {"line": initial_value})
+            view.run_command("show_at_center")
+
 
     def on_done_move_abs(self, text):
         view = self.window.active_view()
@@ -148,6 +156,7 @@ class ElevatorMoveCommand(sublime_plugin.WindowCommand):
         line = cast_to_int(text)
 
         view.run_command("goto_line", {"line": line})
+        view.run_command("show_at_center")
 
 
 class ElevatorToggleRelativeLineNumbersCommand(sublime_plugin.WindowCommand):
